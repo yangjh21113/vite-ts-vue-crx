@@ -14,7 +14,7 @@
         "run_at": "document_end"
       }
     ],
-    "permissions": ["storage","declarativeContent"],
+    "permissions": ["sidePanel", "storage","contextMenus"],
     "host_permissions":[],
     "web_accessible_resources": [
       {
@@ -27,7 +27,6 @@
       }
     ],
     "action": {
-      "default_popup": "index.html",
       "default_icon": {
         "16": "/images/app.png",
         "32": "/images/app.png",
@@ -35,6 +34,9 @@
         "128": "/images/app.png"
       },
       "default_title": "Vue CRX MV3"
+    },
+    "side_panel": {
+      "default_path": "index.html"
     },
     "icons": {
       "16": "/images/app.png",
