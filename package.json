@@ -38,7 +38,8 @@
     "sass": "^1.66.1",
     "stylus": "^0.59.0",
     "typescript": "^5.5.3",
-    "vite": "^4.4.9"
+    "vite": "^4.4.9",
+    "vite-plugin-svg-icons": "^2.0.1"
   },
   "packageManager": "yarn@1.22.19"
 }

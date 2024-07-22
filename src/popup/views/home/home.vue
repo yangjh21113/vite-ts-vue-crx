@@ -1,8 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import SvgIcon from '@/common/components/SvgIcon.vue'
+</script>
 
 <template>
   <div class="P-home">
     <h1>Home Page</h1>
+    <SvgIcon name="bad" color="red" />
+    <SvgIcon name="download" color="red" />
   </div>
 </template>
 

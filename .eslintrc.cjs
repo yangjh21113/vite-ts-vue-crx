@@ -9,6 +9,7 @@ module.exports = {
     'vue/no-v-html': 0,
     'vue/v-on-event-hyphenation': 0,
     'vue/no-template-shadow': 0,
-    'vue/multi-word-component-names': 0
+    'vue/multi-word-component-names': 0,
+    'vue/max-attributes-per-line': 'off'
   }
 }

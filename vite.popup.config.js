@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import path from 'path'
+import { resolve } from 'path'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { CRX_OUTDIR } from './globalConfig'
 
 // https://vitejs.dev/config/
@@ -28,8 +29,13 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': resolve(__dirname, 'src')
     }
   },
-  plugins: [vue()]
+  plugins: [
+    vue(),
+    createSvgIconsPlugin({
+      iconDirs: [resolve(__dirname, 'src/common/assets/svgs')]
+    })
+  ]
 })

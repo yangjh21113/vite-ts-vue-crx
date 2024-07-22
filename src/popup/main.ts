@@ -5,6 +5,7 @@ import 'element-plus/dist/index.css'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import Popup from '@/popup/popup.vue'
 import router from './router'
+import 'virtual:svg-icons-register'
 
 const a: number = 1
 console.log(a)
