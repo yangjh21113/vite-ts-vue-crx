@@ -1,3 +1,13 @@
+<template>
+  <div class="M-nav">
+    <el-tabs v-model="path" class="top-nav" @tab-change="onTabChange" stretch>
+      <el-tab-pane label="Home" name="/home"></el-tab-pane>
+      <el-tab-pane label="Account" name="/account"></el-tab-pane>
+    </el-tabs>
+    <el-button type="primary" class="btn-exit" @click="onExit">退出</el-button>
+  </div>
+</template>
+
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
 // route钩子，返回当前的路由地址
@@ -16,16 +26,6 @@ const onExit = () => {
   router.push('/login')
 }
 </script>
-
-<template>
-  <div class="M-nav">
-    <el-tabs v-model="path" class="top-nav" @tab-change="onTabChange" stretch>
-      <el-tab-pane label="Home" name="/home"></el-tab-pane>
-      <el-tab-pane label="Account" name="/account"></el-tab-pane>
-    </el-tabs>
-    <el-button type="primary" class="btn-exit" @click="onExit">退出</el-button>
-  </div>
-</template>
 
 <style scoped lang="scss">
 .M-nav {

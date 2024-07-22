@@ -1,3 +1,16 @@
+<template>
+  <el-dialog v-model="isVisible" v-if="isVisible" title="CRX对话框" width="600">
+    <div class="main-content-con">
+      <div class="item-con">
+        <el-input v-model="text" placeholder="" />
+      </div>
+    </div>
+    <template #footer>
+      <el-button type="primary" @click="submit">Submit</el-button>
+    </template>
+  </el-dialog>
+</template>
+
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { apiReqs } from '@/api'
@@ -36,18 +49,5 @@ const submit = () => {
   })
 }
 </script>
-
-<template>
-  <el-dialog v-model="isVisible" v-if="isVisible" title="CRX对话框" width="600">
-    <div class="main-content-con">
-      <div class="item-con">
-        <el-input v-model="text" placeholder="" />
-      </div>
-    </div>
-    <template #footer>
-      <el-button type="primary" @click="submit">Submit</el-button>
-    </template>
-  </el-dialog>
-</template>
 
 <style scoped lang="scss"></style>
