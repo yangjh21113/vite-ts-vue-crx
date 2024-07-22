@@ -9,7 +9,7 @@ import router from './router'
 
 const app = createApp(Popup)
 app.use(ElementPlus, {
-    locale: zhCn,
+  locale: zhCn
 })
 app.use(router)
 app.mount('#app')

@@ -1,9 +1,9 @@
 <script setup></script>
 
 <template>
-    <div class="P-account">
-        <h1>Account Page</h1>
-    </div>
+  <div class="P-account">
+    <h1>Account Page</h1>
+  </div>
 </template>
 
 <style scoped lang="stylus">

@@ -14,15 +14,15 @@ document.body.appendChild(crxApp)
 const app = createApp(Content)
 // 集成Element Plus
 app.use(ElementPlus, {
-    locale: zhCn,
+  locale: zhCn
 })
 // 将Vue APP插入刚创建的div
 app.mount('#CRX-container')
 
 // 向目标页面驻入js
 try {
-    let insertScript = document.createElement('script')
-    insertScript.setAttribute('type', 'text/javascript')
-    insertScript.src = window.chrome.runtime.getURL('insert.js')
-    document.body.appendChild(insertScript)
+  const insertScript = document.createElement('script')
+  insertScript.setAttribute('type', 'text/javascript')
+  insertScript.src = window.chrome.runtime.getURL('insert.js')
+  document.body.appendChild(insertScript)
 } catch (err) {}
