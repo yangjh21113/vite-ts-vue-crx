@@ -1,14 +1,17 @@
-<script setup lang="ts">
-import SvgIcon from '@/common/components/SvgIcon.vue'
-</script>
-
 <template>
   <div class="P-home">
     <h1>Home Page</h1>
+    {{ store.name }}
     <SvgIcon name="bad" color="red" />
     <SvgIcon name="download" color="red" />
   </div>
 </template>
+
+<script setup lang="ts">
+import SvgIcon from '@/common/components/SvgIcon.vue'
+import { useStore } from '@/popup/store'
+const store = useStore()
+</script>
 
 <style scoped lang="scss">
 .P-home {
