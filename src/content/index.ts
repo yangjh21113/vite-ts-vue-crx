@@ -1,8 +1,11 @@
 import { createApp } from 'vue'
 import ElementPlus from 'element-plus'
+import '@/common/assets/styles/global.scss'
+import '@/common/assets/styles/reset.scss'
 import '@/content/element-plus.scss'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import Content from '@/content/content.vue'
+import 'virtual:svg-icons-register'
 
 // 创建id为CRX-container的div
 const crxApp = document.createElement('div')

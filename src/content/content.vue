@@ -1,14 +1,7 @@
-<script setup>
-import { ref } from 'vue'
-import MainDialog from '@/content/components/mainDialog/mainDialog.vue'
-
-// 对话框显示状态
-const isShowMainDialog = ref(false)
-</script>
-
 <template>
   <el-config-provider namespace="CRX-el">
     <div class="CRX-content">
+      <SvgIcon name="bad" color="red" />
       <div class="content-entry" @click="isShowMainDialog = true"></div>
       <MainDialog
         :visible="isShowMainDialog"
@@ -21,6 +14,15 @@ const isShowMainDialog = ref(false)
     </div>
   </el-config-provider>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import SvgIcon from '@/common/components/SvgIcon.vue'
+import MainDialog from '@/content/components/mainDialog/mainDialog.vue'
+
+// 对话框显示状态
+const isShowMainDialog = ref(false)
+</script>
 
 <style scoped lang="scss">
 .CRX-content {

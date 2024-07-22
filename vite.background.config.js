@@ -10,7 +10,7 @@ export default defineConfig({
     // 输出目录
     outDir: CRX_BACKGROUND_OUTDIR,
     lib: {
-      entry: [path.resolve(__dirname, 'src/background/index.ts')],
+      entry: [resolve(__dirname, 'src/background/index.ts')],
       // background script不支持ES6，因此不用使用es模式，需要改为cjs模式
       formats: ['cjs'],
       // 设置生成文件的文件名
@@ -22,7 +22,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': resolve(__dirname, 'src')
     }
   },
   plugins: [
