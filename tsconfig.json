@@ -1,0 +1,24 @@
+{
+    "include": [
+      "src/**/*",
+      "src/**/*.vue",
+      "src/hooks/**.ts",
+    ],
+    "compilerOptions": {
+      "module": "ESNext",
+      "types": [
+        "node",
+      ],
+      "baseUrl": ".",
+      "allowJs": true,
+      "paths": {
+        "@/*": [
+          "src/*"
+        ]
+      },
+      "resolveJsonModule": true,
+      "moduleResolution": "nodenext",
+      "strict": false,
+      "allowSyntheticDefaultImports": true
+    },
+  }

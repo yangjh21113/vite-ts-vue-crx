@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
 // route钩子，返回当前的路由地址
 const route = useRoute()

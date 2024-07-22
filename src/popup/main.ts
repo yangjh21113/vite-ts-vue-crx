@@ -7,6 +7,8 @@ import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import Popup from '@/popup/popup.vue'
 import router from './router'
 
+const a: number = 1
+console.log(a)
 const app = createApp(Popup)
 app.use(ElementPlus, {
   locale: zhCn

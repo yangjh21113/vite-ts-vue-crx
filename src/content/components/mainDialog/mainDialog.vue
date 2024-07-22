@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref, computed } from 'vue'
 import { apiReqs } from '@/api'
 // 接受父组件传递的方法
@@ -7,7 +7,7 @@ const emit = defineEmits(['onClose'])
 const props = defineProps(['visible'])
 
 // 输入框中的内容
-const text = ref('')
+const text: any = ref('')
 
 // 是否显示对话框
 const isVisible = computed({

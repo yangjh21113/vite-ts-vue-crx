@@ -2,7 +2,7 @@
   "name": "vite-vue-crx-2023autumn",
   "private": true,
   "version": "0.0.0",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "dev": "vite -c vite.popup.config.js",
     "build": "vite build -c vite.popup.config.js && vite build -c vite.content.config.js && vite build -c vite.background.config.js && node build.js",
@@ -24,6 +24,9 @@
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
+    "@types/node": "^20.14.11",
+    "@typescript-eslint/eslint-plugin": "^7.16.1",
+    "@typescript-eslint/parser": "^7.16.1",
     "@vitejs/plugin-vue": "^4.3.1",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^6.15.0",
@@ -34,6 +37,7 @@
     "prettier": "^2.4.1",
     "sass": "^1.66.1",
     "stylus": "^0.59.0",
+    "typescript": "^5.5.3",
     "vite": "^4.4.9"
   },
   "packageManager": "yarn@1.22.19"

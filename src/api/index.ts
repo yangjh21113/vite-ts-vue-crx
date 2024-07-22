@@ -1,4 +1,4 @@
-// 引入mock.js，不使用时注释掉，build前要注释掉
+// 引入mock.ts，不使用时注释掉，build前要注释掉
 // import '@/mock'
 /* global chrome */
 
