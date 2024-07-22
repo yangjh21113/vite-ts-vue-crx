@@ -50,4 +50,4 @@ const submit = () => {
   </el-dialog>
 </template>
 
-<style scoped lang="stylus"></style>
+<style scoped lang="scss"></style>

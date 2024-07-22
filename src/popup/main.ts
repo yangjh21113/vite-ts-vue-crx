@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
 // 全局样式
-import '@/common/styles/frame.styl'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'

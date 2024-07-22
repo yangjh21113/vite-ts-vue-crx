@@ -44,18 +44,21 @@ const onLogin = () => {
   </div>
 </template>
 
-<style scoped lang="stylus">
-.P-login
-    position: absolute
-    top: 0
-    bottom: 0
-    width: 100%
-    background: #4bb8e5
-    .logo
-        display: block
-        margin: 50px auto 20px
-    .ipt-con
-        margin: 0 auto 20px
-        width: 300px
-        text-align: center
+<style scoped lang="scss">
+.P-login {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: #4bb8e5;
+  .logo {
+    display: block;
+    margin: 50px auto 20px;
+  }
+  .ipt-con {
+    margin: 0 auto 20px;
+    width: 300px;
+    text-align: center;
+  }
+}
 </style>

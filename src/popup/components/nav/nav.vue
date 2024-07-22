@@ -27,19 +27,23 @@ const onExit = () => {
   </div>
 </template>
 
-<style scoped lang="stylus">
-.M-nav
-    position: relative
-    z-index: 999
-    background: #fff
-    .top-nav
-        margin:0 auto
-        padding-bottom: 1px
-        width: 200px
-        :deep(.el-tabs__header)
-            margin-bottom: 0
-    .btn-exit
-        position: absolute
-        top: 4px
-        right: 6px
+<style scoped lang="scss">
+.M-nav {
+  position: relative;
+  z-index: 999;
+  background: #fff;
+  .top-nav {
+    margin: 0 auto;
+    padding-bottom: 1px;
+    width: 200px;
+    :deep(.el-tabs__header) {
+      margin-bottom: 0;
+    }
+  }
+  .btn-exit {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+  }
+}
 </style>
