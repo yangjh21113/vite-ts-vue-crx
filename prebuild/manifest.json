@@ -7,15 +7,20 @@
   "action": {
     "default_icon": "icons/app.png"
   },
-  "host_permissions": [
-    "http://*/*",
-    "https://*/*"
-  ],
+  "host_permissions": ["http://*/*", "https://*/*"],
   "background": {
     "service_worker": "service-worker.js"
   },
-  "omnibox": {"keyword": "check"},
-  "permissions": [ "tabs","activeTab", "contextMenus", "tabCapture", "offscreen", "sidePanel"],
+  "omnibox": { "keyword": "check" },
+  "commands": {
+    "check": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      },
+      "description": "check"
+    }
+  },
+  "permissions": ["tabs", "activeTab", "contextMenus", "tabCapture", "offscreen", "sidePanel"],
   "side_panel": {
     "default_path": "index.html"
   }

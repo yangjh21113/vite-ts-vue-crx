@@ -11,17 +11,8 @@ chrome.runtime.onInstalled.addListener(() => {
   //   title: '开始录屏',
   //   contexts: ['all']
   // })
-  chrome.omnibox.onInputChanged.addListener(async (text, suggest) => {
-    suggest([
-      {
-        content: '开始录屏',
-        description: '描述',
-        deletable: false
-      }
-    ])
-  })
-  chrome.omnibox.onInputEntered.addListener(async () => {
-    console.log(333)
+
+  chrome.commands.onCommand.addListener(async command => {
     await startRecord()
   })
 })
