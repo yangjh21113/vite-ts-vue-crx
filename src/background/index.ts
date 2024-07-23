@@ -22,33 +22,3 @@ chrome.runtime.onInstalled.addListener(function () {
     })
   })
 })
-
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  // 接收来自content script的消息，requset里不允许传递function和file类型的参数
-  chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
-    const { contentRequest } = request
-    // 接收来自content的api请求
-    if (contentRequest === 'apiRequest') {
-      const { config } = request
-      // API请求成功的回调
-      config.success = data => {
-        data.result = 'succ'
-        sendResponse(data)
-      }
-      // API请求失败的回调
-      config.fail = msg => {
-        sendResponse({
-          result: 'fail',
-          msg
-        })
-      }
-      // 发起请求
-      apiRequest(config)
-    }
-  })
-  return true
-})
-
-chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
-  if (!tab.url) return
-})
