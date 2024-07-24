@@ -5,9 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script type="module" crossorigin src="./popup.js"></script>
+    <style>
+      .container {
+        min-width: 200px;
+        min-height: 200px;
+      }
+      #videoCurrent {
+        cursor: pointer;
+      }
+      table {
+        border: 1px solid;
+        white-space: nowrap;
+      }
+      td {
+        padding: 10px;
+        cursor: pointer;
+      }
+      .btn {
+        background: pink;
+      }
+      .btn:hover {
+        color: red;
+      }
+    </style>
   </head>
   <body>
-    <div id="btn">点击截屏</div>
-    <video id="videoItem" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"></video>
+    <div class="container">
+      <table>
+        <tr>
+          <th></th>
+          <th>录屏</th>
+          <th>截屏</th>
+        </tr>
+        <tr>
+          <td>当前标签页</td>
+          <td class="btn" id="recordBtn">录屏</td>
+          <td class="btn">截屏</td>
+        </tr>
+      </table>
+    </div>
   </body>
 </html>

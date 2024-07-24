@@ -1,11 +1,12 @@
 {
-  "name": "测试录屏",
+  "name": "录屏软件",
   "description": "Records the current tab in an offscreen document.",
   "version": "1",
   "manifest_version": 3,
   "minimum_chrome_version": "116",
   "action": {
-    "default_icon": "icons/app.png"
+    "default_popup": "index.html",
+    "default_icon": "icons/logo.png"
   },
   "host_permissions": ["http://*/*", "https://*/*"],
   "background": {
@@ -23,5 +24,10 @@
   "permissions": ["tabs", "activeTab", "contextMenus", "tabCapture", "offscreen", "sidePanel"],
   "side_panel": {
     "default_path": "index.html"
+  },
+  "icons": {
+    "16": "icons/logo.png",
+    "48": "icons/logo.png",
+    "128": "icons/logo.png"
   }
 }

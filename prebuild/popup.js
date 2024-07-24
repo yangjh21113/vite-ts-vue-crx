@@ -1,20 +1,11 @@
-const ele = document.getElementById('btn')
+const recordBtn = document.getElementById('recordBtn')
 
-const btnclick = () => {
-  console.log('开始截屏')
+const recordBtnclick = () => {
+  console.log('pop 开始录屏')
+  chrome.runtime.sendMessage({
+    type: 'to-record'
+  })
 }
-
-if (ele) {
-  ele.onclick = btnclick
+if (recordBtn) {
+  recordBtn.addEventListener('click', recordBtnclick)
 }
-
-chrome.runtime.onMessage.addListener(message => {
-  console.log('侧边栏接收到消息', message)
-  if (message.type === 'display') {
-    console.log('接收到消息')
-    const videoEle = document.getElementById('videoItem')
-    if (videoEle) {
-      videoEle.src = message.url
-    }
-  }
-})
