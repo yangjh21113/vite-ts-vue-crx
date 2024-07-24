@@ -54,13 +54,58 @@ chrome.runtime.onInstalled.addListener(() => {
   //   openPanelOnActionClick: true
   // })
 })
+let recording = false
+const startRecordAll = async streamId => {
+  const existingContexts = await chrome.runtime.getContexts({})
 
+  const offscreenDocument = existingContexts.find(c => c.contextType === 'OFFSCREEN_DOCUMENT')
+
+  // If an offscreen document is not already open, create one.
+  if (!offscreenDocument) {
+    // Create an offscreen document.
+    await chrome.offscreen.createDocument({
+      url: 'offscreen2.html',
+      reasons: ['USER_MEDIA'],
+      justification: 'Recording from chrome.tabCapture API'
+    })
+  } else {
+    recording = offscreenDocument.documentUrl.endsWith('#recording')
+  }
+
+  if (recording) {
+    chrome.runtime.sendMessage({
+      type: 'stop-recording-all',
+      target: 'offscreen2'
+    })
+    chrome.action.setIcon({ path: 'icons/logo.png' })
+    return
+  }
+
+  chrome.runtime.sendMessage({
+    type: 'start-recording-all',
+    target: 'offscreen2',
+    data: streamId
+  })
+
+  chrome.action.setIcon({ path: 'icons/recording.png' })
+}
+const recordAllCb = async (streamId, options, xx) => {
+  console.log('sw record all callback', streamId, options, xx)
+  startRecordAll(streamId)
+}
 chrome.runtime.onMessage.addListener(async (message, sender) => {
   console.log('sw 接受消息', message, sender)
 
+  const tab = await getCurrentTab()
+  console.log('sw tab', tab)
+  console.log('sw recording', recording)
   if (message.type === 'to-record') {
-    const tab = await getCurrentTab()
-    console.log('sw tab', tab)
     startRecord(tab)
+  } else if (message.type === 'to-record-all') {
+    if (recording) {
+      recordAllCb()
+    } else {
+      chrome.desktopCapture.chooseDesktopMedia(['window', 'screen', 'tab'], tab, recordAllCb)
+    }
   }
 })

@@ -36,11 +36,9 @@ let recorder
 let data = []
 
 async function startRecording(streamId) {
-  console.log('开始开始i')
   if (recorder?.state === 'recording') {
     throw new Error('Called startRecording while recording is in progress.')
   }
-
   const media = await navigator.mediaDevices.getUserMedia({
     audio: {
       mandatory: {

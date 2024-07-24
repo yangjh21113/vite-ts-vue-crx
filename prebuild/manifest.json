@@ -21,7 +21,7 @@
       "description": "check"
     }
   },
-  "permissions": ["tabs", "activeTab", "contextMenus", "tabCapture", "offscreen", "sidePanel"],
+  "permissions": ["desktopCapture", "tabs", "activeTab", "contextMenus", "tabCapture", "offscreen", "sidePanel"],
   "side_panel": {
     "default_path": "index.html"
   },

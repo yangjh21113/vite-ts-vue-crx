@@ -1,5 +1,6 @@
 const recordBtn = document.getElementById('recordBtn')
 const recordResult = document.getElementById('recordResult')
+const recordAllBtn = document.getElementById('recordAllBtn')
 const recordBtnclick = () => {
   console.log('pop 开始录屏')
   chrome.runtime.sendMessage({
@@ -8,6 +9,20 @@ const recordBtnclick = () => {
 }
 if (recordBtn) {
   recordBtn.addEventListener('click', recordBtnclick)
+}
+const recordAllBtnClick = () => {
+  console.log('pop record all')
+  chrome.runtime.sendMessage({
+    type: 'to-record-all'
+  })
+}
+if (recordAllBtn) {
+  recordAllBtn.addEventListener('click', recordAllBtnClick)
+}
+const test = document.getElementById('test')
+if (test) {
+  //  每个tab 的popup会刷新页面
+  test.innerHTML = `${new Date().getTime()}`
 }
 
 chrome.runtime.onMessage.addListener((message, sender) => {
