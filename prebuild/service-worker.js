@@ -16,7 +16,26 @@ chrome.runtime.onInstalled.addListener(() => {
     await startRecord()
   })
 })
-
+let url = ''
+chrome.runtime.onMessage.addListener(async message => {
+  console.log('接受消息', message)
+  if (message.type === 'open-pannel') {
+    const tab = await getCurrentTab()
+    url = message.url
+    console.log(tab, url)
+  }
+})
+chrome.action.onClicked.addListener(async tab => {
+  console.log('发送消息', url, tab)
+  await chrome.sidePanel.open({
+    tabId: tab.id
+  })
+  await chrome.runtime.sendMessage({
+    type: 'display',
+    url: url
+  })
+  console.log('发送完消息')
+})
 const startRecord = async () => {
   const existingContexts = await chrome.runtime.getContexts({})
   let recording = false

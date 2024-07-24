@@ -11,7 +11,12 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
+async function getCurrentTab() {
+  let queryOptions = { active: true, lastFocusedWindow: true }
+  // `tab` will either be a `tabs.Tab` instance or `undefined`.
+  let [tab] = await chrome.tabs.query(queryOptions)
+  return tab
+}
 chrome.runtime.onMessage.addListener(async message => {
   if (message.target === 'offscreen') {
     switch (message.type) {
@@ -59,8 +64,14 @@ async function startRecording(streamId) {
   // Start recording.
   recorder = new MediaRecorder(media, { mimeType: 'video/webm' })
   recorder.ondataavailable = event => data.push(event.data)
-  recorder.onstop = () => {
+  recorder.onstop = async () => {
     const blob = new Blob(data, { type: 'video/webm' })
+
+    chrome.runtime.sendMessage({
+      type: 'open-pannel',
+      url: URL.createObjectURL(blob)
+    })
+
     window.open(URL.createObjectURL(blob), '_blank')
 
     // Clear state ready for next recording
