@@ -68,11 +68,11 @@ async function startRecording(streamId) {
     const blob = new Blob(data, { type: 'video/webm' })
 
     chrome.runtime.sendMessage({
-      type: 'open-pannel',
+      type: 'preview',
       url: URL.createObjectURL(blob)
     })
 
-    window.open(URL.createObjectURL(blob), '_blank')
+    // window.open(URL.createObjectURL(blob), '_blank')
 
     // Clear state ready for next recording
     recorder = undefined

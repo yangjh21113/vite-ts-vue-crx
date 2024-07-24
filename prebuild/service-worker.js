@@ -47,7 +47,12 @@ const startRecord = async tab => {
 }
 
 chrome.runtime.onInstalled.addListener(() => {
-  //
+  chrome.action.onClicked.addListener(tab => {})
+  // 不能再pannel 里面调用录屏
+  //Uncaught (in promise) Error: Extension has not been invoked for the current page (see activeTab permission). Chrome pages cannot be captured.
+  // chrome.sidePanel.setPanelBehavior({
+  //   openPanelOnActionClick: true
+  // })
 })
 
 chrome.runtime.onMessage.addListener(async (message, sender) => {
@@ -55,6 +60,7 @@ chrome.runtime.onMessage.addListener(async (message, sender) => {
 
   if (message.type === 'to-record') {
     const tab = await getCurrentTab()
+    console.log('sw tab', tab)
     startRecord(tab)
   }
 })
