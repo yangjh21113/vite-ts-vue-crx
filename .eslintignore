@@ -1,6 +1,5 @@
 /dist
 /node_modules
-tsconfig.json
 *.svg
 *.png
 *.jpg
@@ -8,5 +7,3 @@ tsconfig.json
 *.gif
 *.webp
 *.ttf
-index.html
-*.md
