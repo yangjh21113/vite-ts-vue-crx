@@ -1,9 +1,5 @@
 /dist
 /node_modules
-/deploy
-*.yml
-*.yaml
-tsconfig.json
 *.svg
 *.png
 *.jpg
@@ -11,4 +7,3 @@ tsconfig.json
 *.gif
 *.webp
 *.ttf
-*.md
