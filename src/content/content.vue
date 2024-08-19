@@ -1,39 +1,19 @@
 <template>
-  <el-config-provider namespace="CRX-el">
-    <div class="CRX-content">
-      <div class="content-entry" @click="isShowMainDialog = true"></div>
-      <MainDialog
-        :visible="isShowMainDialog"
-        @onClose="
-          () => {
-            isShowMainDialog = false
-          }
-        "
-      />
-    </div>
-  </el-config-provider>
+  <div class="content-box">content</div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import MainDialog from '@/content/components/mainDialog/mainDialog.vue'
-
-// 对话框显示状态
-const isShowMainDialog = ref(false)
 </script>
 
 <style scoped lang="scss">
-.CRX-content {
-  .content-entry {
-    position: fixed;
-    z-index: 9999;
-    bottom: 100px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background: url('images/content-icon.png');
-    background-size: 100% 100%;
-    cursor: pointer;
-  }
+.content-box {
+  border: 1px solid red;
+  width: 100px;
+  height: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 </style>

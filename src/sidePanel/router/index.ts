@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import App from '@/popup/popup.vue'
+import Home from '@/sidePanel/views/home.vue'
 
 const routes = [
-  { path: '/login', component: App, exact: true },
   {
     path: '/',
-    component: App
+    component: Home,
+    children: [{ path: '/:pathMatch(.*)', redirect: '/' }]
   }
 ]
 

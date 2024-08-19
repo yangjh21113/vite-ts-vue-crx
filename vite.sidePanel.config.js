@@ -2,33 +2,34 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-import { CRX_CONTENT_OUTDIR } from './globalConfig'
+import { CRX_SIDEPANEL_OUTDIR } from './globalConfig'
 
 export default defineConfig({
   build: {
-    outDir: CRX_CONTENT_OUTDIR,
+    // 输出目录
+    outDir: CRX_SIDEPANEL_OUTDIR,
     lib: {
-      entry: [resolve(__dirname, 'content.html')],
+      entry: [resolve(__dirname, 'sidePanel.html')],
       formats: ['cjs'],
       fileName: () => {
-        return 'content.js'
+        return 'sidePanel.js'
       }
     },
     rollupOptions: {
       output: {
-        assetFileNames: assetInfo => {
-          return 'content.css'
+        assetFileNames: () => {
+          return 'sidePanel.css'
         }
       }
     }
+  },
+  server: {
+    open: '/sidePanel.html'
   },
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src')
     }
-  },
-  server: {
-    open: '/content.html'
   },
   define: {
     'process.env.NODE_ENV': null
