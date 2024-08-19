@@ -3,7 +3,6 @@ import ElementPlus from 'element-plus'
 import '@/common/assets/styles/global.scss'
 import '@/common/assets/styles/reset.scss'
 import '@/content/element-plus.scss'
-import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import Content from '@/content/content.vue'
 import 'virtual:svg-icons-register'
 
@@ -16,9 +15,7 @@ document.body.appendChild(crxApp)
 // 创建Vue APP
 const app = createApp(Content)
 // 集成Element Plus
-app.use(ElementPlus, {
-  locale: zhCn
-})
+app.use(ElementPlus)
 // 将Vue APP插入刚创建的div
 app.mount('#CRX-container')
 
